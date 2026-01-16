@@ -8,8 +8,8 @@ import axios from 'axios'
 // })
 const api = axios.create({
     baseURL: "https://auth-backend-nine.vercel.app/user",
-    withCredentials:true
-})
+    withCredentials: true
+});
 
 export const RegisterUser = (formdata) => api.post('/register',formdata)
 
