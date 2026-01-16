@@ -1,0 +1,111 @@
+/* Login.css */
+
+.login-main {
+  min-height: 100vh;
+  width: 100vw;
+  background: linear-gradient(135deg, #0f0f0f, #1c1c1c);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  box-sizing: border-box; /* ensures padding doesn't cause overflow */
+  overflow-x: hidden; /* removes horizontal scroll */
+}
+.register-text {
+  margin-top: 15px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.register-text span {
+  color: #007bff;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.register-text span:hover {
+  text-decoration: underline;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 450px; /* max width instead of fixed */
+  background: #161616;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+  padding: 40px;
+  text-align: left; /* change from center to left for labels */
+  box-sizing: border-box;
+}
+
+.login-card h2 {
+  color: #fff;
+  font-size: 32px;
+  margin-bottom: 10px;
+  text-align: center; /* keep title centered */
+}
+
+.login-card p {
+  color: #ccc;
+  margin-bottom: 30px;
+  text-align: center; /* keep description centered */
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.login-form label {
+  color: #ccc;
+  font-weight: 600;
+  margin-bottom: 5px;
+  text-align: left; /* labels align left now */
+}
+
+.login-form input {
+  padding: 12px 10px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid #444;
+  background: #1a1a1a;
+  color: #fff;
+  outline: none;
+  width: 100%; /* make inputs responsive */
+  box-sizing: border-box;
+}
+
+.login-form input:focus {
+  border-color: #1890ff;
+}
+
+.login-form button {
+  padding: 12px;
+  background: #1890ff;
+  color: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  transition: transform 0.2s, opacity 0.2s;
+  width: 100%; /* button takes full width */
+}
+
+.login-form button:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
+/* Responsive */
+@media(max-width: 425px){
+  .login-card{
+    width: 100%; /* full width */
+    padding: 20px;
+  }
+
+  .login-form input, .login-form button {
+    font-size: 14px;
+    padding: 10px;
+  }
+}

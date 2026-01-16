@@ -1,0 +1,145 @@
+/* Home.css */
+
+.home-container {
+  min-height: 100vh;
+  width: 100vw; /* <-- Use 100% instead of 100vw */
+  background: linear-gradient(135deg, #0f0f0f, #1c1c1c);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box; /* ensures padding doesn't create scroll */
+  overflow-x: hidden; /* optional: hide any horizontal overflow */
+}
+
+
+.home-header {
+  width: 100%;
+  max-width: 1000px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.home-header h1 {
+  color: #fff;
+  font-size: 32px;
+}
+
+.home-buttons {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  transition: transform 0.2s, background 0.2s;
+}
+
+.btn.logout {
+  background-color: #ff4d4f;
+  color: #fff;
+}
+
+.btn.update {
+  background-color: #1890ff;
+  color: #fff;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
+.user-card {
+  width: 100%;
+  max-width: 800px;
+  background: #161616;
+  border: 1px solid #2a2a2a;
+  border-radius: 20px;
+  padding: 30px;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+  flex-wrap: wrap;
+}
+
+.user-avatar {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #1890ff;
+}
+
+.user-info {
+  color: #fff;
+  flex: 1;
+}
+
+.user-info h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.user-info p {
+  font-size: 18px;
+  margin-bottom: 5px;
+  color: #ccc;
+}
+
+.loading {
+  color: #fff;
+  font-size: 20px;
+  margin-top: 50px;
+  text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .user-card {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+    padding: 20px;
+  }
+
+  .user-avatar {
+    width: 120px;
+    height: 120px;
+  }
+
+  .user-info h2 {
+    font-size: 24px;
+  }
+
+  .user-info p {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 425px) {
+  .home-header h1 {
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
+
+  .btn {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+
+  .user-avatar {
+    width: 100px;
+    height: 100px;
+  }
+}
