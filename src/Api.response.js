@@ -2,8 +2,12 @@ import axios from 'axios'
 
 
 
+// const api = axios.create({
+//     baseURL:"http://localhost:8000/user",
+//     withCredentials:true
+// })
 const api = axios.create({
-    baseURL:"http://localhost:8000/user",
+    baseURL: "https://auth-backend-nine.vercel.app/user",
     withCredentials:true
 })
 
