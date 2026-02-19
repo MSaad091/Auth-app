@@ -11,7 +11,9 @@ function Home() {
     const fetchDetails = async () => {
       try {
         const request = await GetUser();
-        setUser(request.data.user);
+        setUser(request.data);
+        console.log(  setUser(request.data.user));
+        
       } catch (error) {
         console.log(error);
       }

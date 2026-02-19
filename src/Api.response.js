@@ -1,22 +1,25 @@
 import axios from 'axios'
 
-
-
-// const api = axios.create({
-//     baseURL:"http://localhost:8000/user",
-//     withCredentials:true
-// })
 const api = axios.create({
-    baseURL: "https://auth-backend-nine.vercel.app/user",
-    withCredentials: true
+    // baseURL: "http://localhost:8000/user", // backend URL
+    baseURL:"https://auth-backend-eqpd.onrender.com/user",
+    withCredentials: true, // ✅ Needed for cookies
 });
 
-export const RegisterUser = (formdata) => api.post('/register',formdata)
+// Register
+export const RegisterUser = (formdata) => api.post('/register', formdata);
 
-export const LoginUser = (formdata) => api.post('/login',formdata)
+// Login
+export const LoginUser = (formdata) => api.post('/login', formdata);
 
-export const UpdateProfile = (id,formdata) => api.put(`/updateprofile/${id}`,formdata)
+// Update Profile
+export const UpdateProfile = (id, formdata) =>
+    api.put(`/updateprofile/${id}`, formdata, {
+        headers: { 'Content-Type': 'multipart/form-data' } // ✅ Must be multipart/form-data for files
+    });
 
-export const LogoutUser = () => api.post('/logout')
+// Logout
+export const LogoutUser = () => api.post('/logout');
 
-export const GetUser = () => api.get('/getuser')
+// Get User
+export const GetUser = () => api.get('/getuser');

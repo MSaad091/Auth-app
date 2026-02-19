@@ -1,62 +1,304 @@
-/* Update.css */
+/* /* Update.css */
 
 .update-container {
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #0f0f0f, #1c1c1c);
+  background: linear-gradient(135deg, #0f0f0f, #1c1c1c, #0a0a0a);
   padding: 20px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+}
+
+.update-form-wrapper {
+  width: 450px;
+  max-width: 100%;
+  background: rgba(22, 22, 22, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 40px 35px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.05);
+  animation: slideUp 0.5s ease;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.update-title {
+  color: #fff;
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 30px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  position: relative;
+}
+
+.update-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #1890ff, #74b9ff);
+  border-radius: 2px;
 }
 
 .update-form {
-  width: 400px;
-  background: #161616;
-  border-radius: 15px;
-  padding: 30px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.5);
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 20px;
 }
 
-.update-form input {
-  padding: 12px;
-  font-size: 16px;
-  border-radius: 8px;
-  border: 1px solid #444;
-  background: #1a1a1a;
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  color: #aaa;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: color 0.3s ease;
+}
+
+.form-group:focus-within label {
+  color: #1890ff;
+}
+
+.form-group input {
+  padding: 14px 16px;
+  font-size: 15px;
+  border-radius: 12px;
+  border: 2px solid #2a2a2a;
+  background: #1e1e1e;
   color: #fff;
   outline: none;
+  transition: all 0.3s ease;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-.update-form input:focus {
+.form-group input:hover {
+  border-color: #3a3a3a;
+}
+
+.form-group input:focus {
   border-color: #1890ff;
+  background: #242424;
+  box-shadow: 0 0 0 3px rgba(24, 144, 255, 0.1);
 }
 
-.update-form button {
-  padding: 12px;
+.form-group input:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.form-group input::placeholder {
+  color: #555;
+  font-size: 14px;
+}
+
+/* File input styling */
+.form-group input[type="file"] {
+  padding: 10px;
+  background: #1e1e1e;
+  cursor: pointer;
+}
+
+.form-group input[type="file"]::-webkit-file-upload-button {
   background: #1890ff;
-  color: #fff;
-  font-weight: 600;
+  border: none;
+  color: white;
+  padding: 8px 16px;
   border-radius: 8px;
   cursor: pointer;
-  transition: transform 0.2s, opacity 0.2s;
+  font-weight: 500;
+  margin-right: 15px;
+  transition: background 0.3s ease;
 }
 
-.update-form button:hover {
-  transform: translateY(-2px);
-  opacity: 0.9;
+.form-group input[type="file"]::-webkit-file-upload-button:hover {
+  background: #40a9ff;
 }
 
-/* Responsive */
-@media(max-width:425px){
-  .update-form{
-    width: 90%;
-    padding: 20px;
+.file-name {
+  color: #aaa;
+  font-size: 13px;
+  margin-top: 4px;
+  word-break: break-all;
+}
+
+/* Message styling */
+.update-message {
+  padding: 14px 18px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
   }
-  .update-form input, .update-form button {
-    font-size: 14px;
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.update-message.error {
+  background: rgba(255, 82, 82, 0.15);
+  border: 1px solid #ff5252;
+  color: #ff8a8a;
+}
+
+.update-message.success {
+  background: rgba(76, 175, 80, 0.15);
+  border: 1px solid #4caf50;
+  color: #81c784;
+}
+
+/* Button styling */
+.update-button {
+  padding: 16px;
+  background: linear-gradient(45deg, #1890ff, #40a9ff);
+  color: #fff;
+  font-weight: 600;
+  font-size: 16px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  overflow: hidden;
+}
+
+.update-button::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.update-button:hover:not(:disabled)::before {
+  width: 300px;
+  height: 300px;
+}
+
+.update-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(24, 144, 255, 0.3);
+}
+
+.update-button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.update-button:disabled {
+  background: linear-gradient(45deg, #666, #888);
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .update-form-wrapper {
+    padding: 30px 25px;
+    width: 90%;
+  }
+  
+  .update-title {
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+  }
+}
+
+@media (max-width: 480px) {
+  .update-container {
     padding: 10px;
   }
+  
+  .update-form-wrapper {
+    padding: 25px 20px;
+  }
+  
+  .update-title {
+    font-size: 1.6rem;
+  }
+  
+  .form-group input {
+    padding: 12px 14px;
+    font-size: 14px;
+  }
+  
+  .update-button {
+    padding: 14px;
+    font-size: 15px;
+  }
+}
+
+/* Loading animation for button */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.update-button:disabled {
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+.update-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.update-container::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+.update-container::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 4px;
+}
+
+.update-container::-webkit-scrollbar-thumb:hover {
+  background: #444;
 }
